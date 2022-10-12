@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elfbar</title>
+    <link rel="stylesheet" href="assets/CSS/main.css">
+    <link rel="stylesheet" href="assets/CSS/code.js">
+</head>
+<body>
+    <div class="header">
+
+        <div class="logo">
+            <div class="logo_text">
+                <h1><a href="Elfbar1500.html">ELfbarStore</a></h1>
+                <h2>The best ElfBar's ever</h2>
+            </div>
+        </div>
+
+        <div class="menubar">
+            <ul class="menu">
+                <li><a href="Elfbar1500.html">Elfbar1500</a></li>  
+                <li><a href="Elfbar1500lux.html">Elfbar1500lux</a></li>
+                <li><a href="Elfbar2000.html">Elfbar2000</a></li>
+                <li><a href="Elfbar2000lux.html">Elfbar2000lux</a></li>
+                <li><a href="Elfbar3000.html">Elfbar3000</a></li>
+                <li><a href="Elfbar3000bb.html">Elfbar3000 BB</a></li>
+                <li><a href="Elfbar4000.html">Elfbar4000</a></li>
+                <li><a href="Elfbar4000lux.html">Elfbar4000 LUX</a></li>
+                <li><a href="Elfbar5000.html">Elfbar5000</a></li>
+                <li><a href="Elfbar5000LB.html">Elfbar5000 LB</a></li>
+                <li class="selected"><a href="Elfbar5000ultra.html">Elfbar5000 ultra</a></li>
+            </ul>
+        </div>
+    </div>
+
+        
+        
+        
+    
+
+    <div class="site_content">
+        <ul class="menu_content">
+            <li><img src="assets/5000ultra/blue-cotton-candy-5000ultra.webp"><input type="number" id="blue-cotton-candy-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">blue cotton candy</li>
+            <li><img src="assets/5000ultra/blue-razz-ice-5000ultra.webp"><input type="number" id="blue-razz-ice-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">blue razz ice</li>
+            <li><img src="assets/5000ultra/dragonfruit-banana-berry--5000ultra.webp"><input type="number" id="dragonfruit-banana-berry--5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">dragonfruit banana berry</li>
+            <li><img src="assets/5000ultra/grape-honeydew-5000ultra.webp"><input type="number" id="grape-honeydew-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">grape honeydew</li>
+            <li><img src="assets/5000ultra/kiwi-dragonfruit-berry-5000ultra.webp"><input type="number" id="kiwi-dragonfruit-berry-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">kiwi dragonfruit berry</li>
+            <li><img src="assets/5000ultra/kiwi-passionfruit-guava-5000ultra.webp"><input type="number" id="kiwi-passionfruit-guava-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">kiwi-passionfruit guava</li>
+        </ul>
+
+        <ul class="menu_content">
+            <li><img src="assets/5000ultra/mint-5000ultra.webp"><input type="number" id="mint-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">mint</li>
+            <li><img src="assets/5000ultra/orange-soda-5000ultra.webp"><input type="number" id="orange-soda-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">orange soda</li>
+            <li><img src="assets/5000ultra/raspberry-watermelon-5000ultra.webp"><input type="number" id="raspberry-watermelon-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">raspberry watermelon</li>
+            <li><img src="assets/5000ultra/strawberry-mango-5000ultra.webp"><input type="number" id="strawberry-mango-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">strawberry mango</li>
+            <li><img src="assets/5000ultra/strawberry-watermelon-bubble-gum-5000ultra.webp"><input type="number" id="strawberry-watermelon-bubble-gum-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">strawberry watermelon bubble gum</li>
+            <li><img src="assets/5000ultra/strawberry-watermelon-peach-5000ultra.webp"><input type="number" id="strawberry-watermelon-peach-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">strawberry watermelon peach</li>
+        </ul>
+
+        <ul class="menu_content">
+            <li><img src="assets/5000ultra/tropical-rainbow-blast-5000ultra.webp"><input type="number" id="tropical-rainbow-blast-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">tropical rainbow blast</li>
+            <li><img src="assets/5000ultra/watermelon-ice-5000ultra.webp"><input type="number" id="watermelon-ice-5000ultra" class="main_num" name="t" value="0" min="0" max="100" step="1">watermelon ice</li>
+        </ul>
+
+            
+
+        <button onclick="saveparam()" class="button">Save</button>
+        <div id="sum" style="font-weight: bold; color: red" class="suma"></div>
+        <button onclick="count()" class="button">Count</button>
+
+    </div>
+
+    <script>
+        let i = 0;
+        console.log(document.getElementsByClassName('main_num'))
+        let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+        while (i< InputArr.length){
+            let iddd = InputArr[i].id
+            console.log(iddd)
+            if (localStorage.getItem(iddd)){
+                document.getElementById(iddd).value = localStorage.getItem(iddd)
+            }
+            i++
+        }
+        function saveparam(param){
+            let i = 0;
+            let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+            while (i< InputArr.length){
+                let iddd = InputArr[i].id
+                localStorage.setItem(iddd, InputArr[i].value)
+                i++
+            }
+        }
+        function count(){
+            let i = 0;
+            let sum = 0;
+            let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+            while (i< InputArr.length){
+                sum += Number(InputArr[i].value)
+                i++
+            }
+            document.getElementById('sum').innerHTML = String(sum)
+        }
+    </script>
+    
+    
+</body>
+</html>

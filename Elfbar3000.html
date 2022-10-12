@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elfbar</title>
+    <link rel="stylesheet" href="assets/CSS/main.css">
+    <link rel="stylesheet" href="assets/CSS/code.js">
+</head>
+<body>
+    <div class="header">
+
+        <div class="logo">
+            <div class="logo_text">
+                <h1><a href="Elfbar1500.html">ELfbarStore</a></h1>
+                <h2>The best ElfBar's ever</h2>
+            </div>
+        </div>
+        
+        <div class="menubar">
+            <ul class="menu">
+                <li><a href="Elfbar1500.html">Elfbar1500</a></li>
+                <li><a href="Elfbar1500lux.html">Elfbar1500lux</a></li>
+                <li><a href="Elfbar2000.html">Elfbar2000</a></li>
+                <li><a href="Elfbar2000lux.html">Elfbar2000lux</a></li>
+                <li class="selected"><a href="Elfbar3000.html">Elfbar3000</a></li>
+                <li><a href="Elfbar3000bb.html">Elfbar3000 BB</a></li>
+                <li><a href="Elfbar4000.html">Elfbar4000</a></li>
+                <li><a href="Elfbar4000lux.html">Elfbar4000 LUX</a></li>
+                <li><a href="Elfbar5000.html">Elfbar5000</a></li>
+                <li><a href="Elfbar5000LB.html">Elfbar5000 LB</a></li>
+                <li><a href="Elfbar5000ultra.html">Elfbar5000 ultra</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="site_content">
+            <ul class="menu_content">
+                <li><img src="assets/3000/blue_razz_ice0.jpg"><input type="number" id="blue_razz_ice0" class="main_num" name="t" value="35" min="0" max="100" step="1">blue razz ice</li>
+                <li><img src="assets/3000/energy0.jpg"><input type="number" id="energy0" class="main_num" name="t" value="35" min="0" max="100" step="1">energy</li>
+                <li><img src="assets/3000/guava_ice0.jpg"><input type="number" id="guava_ice0" class="main_num" name="t" value="35" min="0" max="100" step="1">guava ice</li>
+                <li><img src="assets/3000/lemon-mint0.jpg"><input type="number" id="lemon-mint0" class="main_num" name="t" value="35" min="0" max="100" step="1">lemon mint</li>
+                <li><img src="assets/3000/mango-apricot-peach0.jpg"><input type="number" id="mango-apricot-peach0" class="main_num" name="t" value="35" min="0" max="100" step="1">mango apricot peach</li>
+                <li><img src="assets/3000/peach_mango_watermelon0.jpg"><input type="number" id="peach_mango_watermelon0" class="main_num" name="t" value="35" min="0" max="100" step="1">peach mango watermelon</li>
+            </ul>
+
+            <ul class="menu_content">
+                <li><img src="assets/3000/red_mohito0.jpg"><input type="number" id="red-mohito0" class="main_num" name="t" value="35" min="0" max="100" step="1">red mohito</li>
+                <li><img src="assets/3000/sakura-grape0.jpg"><input type="number" id="sakura-grape0" class="main_num" name="t" value="35" min="0" max="100" step="1">sakura grape</li>
+                <li><img src="assets/3000/strawberry_ice0.jpg"><input type="number" id="strawberry_ice0" class="main_num" name="t" value="35" min="0" max="100" step="1">strawberry ice</li>
+                <li><img src="assets/3000/strawberry_mango0.jpg"><input type="number" id="strawberry_mango0" class="main_num" name="t" value="35" min="0" max="100" step="1">strawberry mango</li>
+                <li><img src="assets/3000/strawberry_pineaaple_coconut0.jpg"><input type="number" id="strawberry_pineaaple_coconut0" class="main_num" name="t" value="35" min="0" max="100" step="1">strawberry pineaaple coconut</li>
+                <li><img src="assets/3000/watermelon-ice0.jpg"><input type="number" id="watermelon-ice0" class="main_num" name="t" value="35" min="0" max="100" step="1">watermelon ice</li>
+            </ul>
+
+            
+
+        <button onclick="saveparam()" class="button">Save</button>
+        <div id="sum" style="font-weight: bold; color: red" class="suma"></div>
+        <button onclick="count()" class="button">Count</button>
+
+    </div>
+
+    <script>
+        let i = 0;
+        console.log(document.getElementsByClassName('main_num'))
+        let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+        while (i< InputArr.length){
+            let iddd = InputArr[i].id
+            console.log(iddd)
+            if (localStorage.getItem(iddd)){
+                document.getElementById(iddd).value = localStorage.getItem(iddd)
+            }
+            i++
+        }
+        function saveparam(param){
+            let i = 0;
+            let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+            while (i< InputArr.length){
+                let iddd = InputArr[i].id
+                localStorage.setItem(iddd, InputArr[i].value)
+                i++
+            }
+        }
+        function count(){
+            let i = 0;
+            let sum = 0;
+            let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+            while (i< InputArr.length){
+                sum += Number(InputArr[i].value)
+                i++
+            }
+            document.getElementById('sum').innerHTML = String(sum)
+        }
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elfbar</title>
+    <link rel="stylesheet" href="assets/CSS/main.css">
+    <link rel="stylesheet" href="assets/CSS/code.js">
+</head>
+<body>
+    <div class="header">
+
+        <div class="logo">
+            <div class="logo_text">
+                <h1><a href="Elfbar1500.html">ELfbarStore</a></h1>
+                <h2>The best ElfBar's ever</h2>
+            </div>
+        </div>
+
+        <div class="menubar">
+            <ul class="menu">
+                <li><a href="Elfbar1500.html">Elfbar1500</a></li>  
+                <li><a href="Elfbar1500lux.html">Elfbar1500lux</a></li>
+                <li><a href="Elfbar2000.html">Elfbar2000</a></li>
+                <li><a href="Elfbar2000lux.html">Elfbar2000lux</a></li>
+                <li><a href="Elfbar3000.html">Elfbar3000</a></li>
+                <li><a href="Elfbar3000bb.html">Elfbar3000 BB</a></li>
+                <li><a href="Elfbar4000.html">Elfbar4000</a></li>
+                <li class="selected"><a href="Elfbar4000lux.html">Elfbar4000 LUX</a></li>
+                <li><a href="Elfbar5000.html">Elfbar5000</a></li>
+                <li><a href="Elfbar5000LB.html">Elfbar5000 LB</a></li>
+                <li><a href="Elfbar5000ultra.html">Elfbar5000 ultra</a></li>
+            </ul>
+        </div>
+    </div>
+
+        
+        
+        
+    
+
+    <div class="site_content">
+        <ul class="menu_content">
+            <li><img src="assets/4000lux/blackcurrant_rib_ice4000lux.webp"><input type="number" id="blackcurrantrib-ice4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">blackcurrant ribena ice</li>
+            <li><img src="assets/4000lux/cola_ice4000lux.webp"><input type="number" id="cola-ice4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">cola ice</li>
+            <li><img src="assets/4000lux/cranberry_grape4000lux.png"><input type="number" id="cranberry-gr4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">cranberry grape</li>  
+            <li><img src="assets/4000lux/grape-honeydew4000lux.webp"><input type="number" id="grape_honeydew4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">grape honeydew</li>
+            <li><img src="assets/4000lux/grape_energy400.webp"><input type="number" id="grape_energy4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">grape energy</li>
+            <li><img src="assets/4000lux/juicy_peach4000lux.webp"><input type="number" id="juicy_peach4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">juicy peach</li>       
+        </ul>
+
+        <ul class="menu_content">
+            <li><img src="assets/4000lux/mocha-chocolate4000lux.webp"><input type="number" id="mocha-chocolate4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">mocha chocolate</li>
+            <li><img src="assets/4000lux/strawber_kiwi4000lux.webp"><input type="number" id="strawber_kiwi4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">strawberry kiwi</li>
+            <li><img src="assets/4000lux/strawberry_grape4000lux.webp"><input type="number" id="strawberry_grape4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">strawberry grape</li>
+            <li><img src="assets/4000lux/strawberry_ice4000lux.webp"><input type="number" id="strawberry_ice4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">strawberry ice</li>
+            <li><img src="assets/4000lux/strawberry_icecream4000lux.webp"><input type="number" id="strawberry_icecream4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">strawberry ice cream</li>
+            <li><img src="assets/4000lux/strawberry_mango4000lux.webp"><input type="number" id="strawberry_mango4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">strawberry mango</li>
+        </ul>
+
+        <ul class="menu_content">
+            <li><img src="assets/4000lux/taro_icecream4000lux.webp"><input type="number" id="taro_icecream4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">taro ice cream</li>
+            <li><img src="assets/4000lux/vanilla_icecream4000lux.webp"><input type="number" id="vanilla_icecream4000lux" class="main_num" name="t" value="35" min="0" max="100" step="1">vanilla ice cream</li>
+        </ul>
+
+            
+
+        <button onclick="saveparam()" class="button">Save</button>
+        <div id="sum" style="font-weight: bold; color: red" class="suma"></div>
+        <button onclick="count()" class="button">Count</button>
+
+    </div>
+
+    <script>
+        let i = 0;
+        console.log(document.getElementsByClassName('main_num'))
+        let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+        while (i< InputArr.length){
+            let iddd = InputArr[i].id
+            console.log(iddd)
+            if (localStorage.getItem(iddd)){
+                document.getElementById(iddd).value = localStorage.getItem(iddd)
+            }
+            i++
+        }
+        function saveparam(param){
+            let i = 0;
+            let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+            while (i< InputArr.length){
+                let iddd = InputArr[i].id
+                localStorage.setItem(iddd, InputArr[i].value)
+                i++
+            }
+        }
+        function count(){
+            let i = 0;
+            let sum = 0;
+            let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+            while (i< InputArr.length){
+                sum += Number(InputArr[i].value)
+                i++
+            }
+            document.getElementById('sum').innerHTML = String(sum)
+        }
+    </script>
+    
+    
+</body>
+</html>

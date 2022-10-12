@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elfbar</title>
+    <link rel="stylesheet" href="assets/CSS/main.css">
+    <link rel="stylesheet" href="assets/CSS/code.js">
+</head>
+<body>
+    <div class="header">
+
+        <div class="logo">
+            <div class="logo_text">
+                <h1><a href="Elfbar1500.html">ELfbarStore</a></h1>
+                <h2>The best ElfBar's ever</h2>
+            </div>
+        </div>
+
+        <div class="menubar">
+            <ul class="menu">
+                <li><a href="Elfbar1500.html">Elfbar1500</a></li>  
+                <li><a href="Elfbar1500lux.html">Elfbar1500lux</a></li>
+                <li><a href="Elfbar2000.html">Elfbar2000</a></li>
+                <li><a href="Elfbar2000lux.html">Elfbar2000lux</a></li>
+                <li><a href="Elfbar3000.html">Elfbar3000</a></li>
+                <li><a href="Elfbar3000bb.html">Elfbar3000 BB</a></li>
+                <li><a href="Elfbar4000.html">Elfbar4000</a></li>
+                <li><a href="Elfbar4000lux.html">Elfbar4000 LUX</a></li>
+                <li><a href="Elfbar5000.html">Elfbar5000</a></li>
+                <li class="selected"><a href="Elfbar5000LB.html">Elfbar5000 LB</a></li>
+                <li><a href="Elfbar5000ultra.html">Elfbar5000 ultra</a></li>
+            </ul>
+        </div>
+    </div>
+
+        
+        
+        
+    
+
+    <div class="site_content">
+        <ul class="menu_content">
+             <li><img src="assets/5000LB/blueberry-raspberry-cherry-5000lb.webp"><input type="number" id="blueberry-raspberry-cherry-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">blueberry raspberry cherry</li>
+             <li><img src="assets/5000LB/cherry-peach-lemonade-5000lb.webp"><input type="number" id="cherry-peach-lemonade-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">cherry peach lemonade</li>
+             <li><img src="assets/5000LB/cotton-candy-5000lb.webp"><input type="number" id="cotton-candy-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">cotton candy</li>
+             <li><img src="assets/5000LB/grape-apple-ice-5000lb.webp"><input type="number" id="grape-apple-ice-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">grape apple ice</li>
+             <li><img src="assets/5000LB/gummy-bear-5000lb.webp"><input type="number" id="gummy-bear-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">gummy bear</li>
+             <li><img src="assets/5000LB/lush-ice-5000lb.webp"><input type="number" id="lush-ice-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">lush ice</li>
+        </ul>
+
+        <ul class="menu_content">
+            <li><img src="assets/5000LB/mixed-berries-5000lb.webp"><input type="number" id="mixed-berries-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">mixed berries</li>
+            <li><img src="assets/5000LB/red-apple-ice-5000lb.webp"><input type="number" id="red-apple-ice-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">red apple ice</li>
+            <li><img src="assets/5000LB/strawberry-blueberry-cherry-5000lb.webp"><input type="number" id="strawberry-blueberry-cherry-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">strawberry blueberry cherry</li>
+            <li><img src="assets/5000LB/strawberry-ice-cream-5000lb.webp"><input type="number" id="strawberry-ice-cream-5000lb" class="main_num" name="t" value="0" min="0" max="100" step="1">strawberry ice cream</li>
+        </ul>0
+
+            
+
+        <button onclick="saveparam()" class="button">Save</button>
+        <div id="sum" style="font-weight: bold; color: red" class="suma"></div>
+        <button onclick="count()" class="button">Count</button>
+
+    </div>
+
+    <script>
+        let i = 0;
+        console.log(document.getElementsByClassName('main_num'))
+        let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+        while (i< InputArr.length){
+            let iddd = InputArr[i].id
+            console.log(iddd)
+            if (localStorage.getItem(iddd)){
+                document.getElementById(iddd).value = localStorage.getItem(iddd)
+            }
+            i++
+        }
+        function saveparam(param){
+            let i = 0;
+            let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+            while (i< InputArr.length){
+                let iddd = InputArr[i].id
+                localStorage.setItem(iddd, InputArr[i].value)
+                i++
+            }
+        }
+        function count(){
+            let i = 0;
+            let sum = 0;
+            let InputArr = Array.prototype.slice.call(document.getElementsByClassName('main_num'))
+            while (i< InputArr.length){
+                sum += Number(InputArr[i].value)
+                i++
+            }
+            document.getElementById('sum').innerHTML = String(sum)
+        }
+    </script>
+    
+    
+</body>
+</html>
